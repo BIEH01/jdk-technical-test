@@ -1,0 +1,53 @@
+@use '../../../_variables' as *
+
+.mainContainer
+    width: auto
+    min-width: 360px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-content: center
+    & > header
+        width: 70%
+        min-width: 360px
+        height: auto
+        display: flex
+        flex-wrap: wrap
+        margin-top: 20px
+        justify-content: center
+        align-content: center
+        & > h1
+            width: 100pc
+            min-width: 280px
+            font-size: 4rem
+            margin-left: 50px
+        & > section
+            width: 100%
+            min-width: 360px
+            height: auto
+            display: flex
+            flex-wrap: wrap
+            align-content: center
+            justify-content: center
+            margin-bottom: 20px
+    & > aside
+        width: 20%
+        height: auto
+        display: flex
+        align-content: center
+        justify-content: center
+        min-width: 360px
+        margin-top: 20px
+        margin-bottom: 20px
+    &__division
+        height: 100%
+        width: 100%
+        position: fixed
+        z-index: 1
+        background-color: black
+        opacity: 60%
+
+@media (min-width: 1200px)
+    .mainContainer
+        margin-right: auto
+        margin-left: auto

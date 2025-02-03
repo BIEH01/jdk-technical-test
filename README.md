@@ -1,8 +1,33 @@
-# React + Vite
+# Product list with cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Design preview for the Product list with cart coding challenge](./preview.jpg)
 
-Currently, two official plugins are available:
+# Gracias por ver mi repositorio, si quieres correr lo en tu ordenador local sigue los siguientes pasos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Debes clonar tu repositorio con este comando
+
+```bash
+git clone https://github.com/BIEH01/jdk-technical-test.git
+```
+
+2. Entra al directorio
+
+```bash
+cd nombre-del-proyecto
+```
+
+3. Instala las dependencias
+
+```bash
+npm install
+```
+
+4. Instala Sass para poder ver los estilos
+
+```bash
+npm install -g sass
+```
+
+Espero te guste tanto como a mi
+
+¡Gracias!

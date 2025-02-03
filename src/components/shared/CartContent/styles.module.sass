@@ -1,0 +1,98 @@
+@use '../../../_variables' as *
+
+.cartContainer
+    background-color: white
+    width: 80%
+    height: fit-content
+    border-radius: 10px
+    margin-bottom: 20px
+    margin-top: 30px
+    display: flex
+    flex-direction: column
+    align-content: center
+    & > h2
+        color: $red
+        font-size: 2.0rem
+        margin-left: 20px
+    & > header
+        width: 100%
+        display: flex
+        flex-direction: column
+        align-content: center
+        justify-content: center
+        & > img
+            width: 100px
+            height: 100px
+            margin-top: 15px
+            margin-right: auto
+            margin-left: auto
+            object-fit: contain
+        & > p
+            font-size: 1.4rem
+            margin-right: auto
+            margin-left: auto
+            margin-bottom: 40px
+    & > div
+        & > ul
+            list-style: none
+            margin: 0
+            padding: 0
+            & > li
+                & > div
+                    background-color: #f3f3f3
+                    width: 90%
+                    height: 1px
+                    margin-right: auto
+                    margin-left: auto
+        & > div
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            align-content: center
+            margin-top: 10px
+            margin-bottom: 8px
+            & > p:nth-child(1)
+                font-size: 1.3rem
+                margin-left: 20px
+            & > p:nth-child(2)
+                font-size: 2rem
+                margin-right: 20px
+                margin-top: 8px
+                font-weight: 700
+        & > footer
+            display: flex
+            flex-direction: column
+            & > div
+                width: 90%
+                height: 50px
+                margin-right: auto
+                margin-left: auto
+                border-radius: 10px
+                display: flex
+                flex-direction: row
+                justify-content: center
+                align-content: center
+                background-color: $rose-100
+                & > img
+                    margin-bottom: 2px
+                    object-fit: contain
+                & > p
+                    margin-left: 8px
+                    font-size: 1.4rem
+                    margin-bottom: 5px
+                    & > strong
+                        font-size: 1.2rem
+            & > button
+                color: white
+                width: 90%
+                height: 50px
+                border: none
+                border-radius: 50px
+                margin-bottom: 30px
+                margin-right: auto
+                margin-left: auto
+                margin-top: 20px
+                font-size: 1.4rem
+                background-color: $red
+                &:active
+                    background-color: $rose-500

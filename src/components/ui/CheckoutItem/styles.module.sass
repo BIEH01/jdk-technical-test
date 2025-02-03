@@ -1,0 +1,46 @@
+@use '../../../_variables.sass' as *
+
+@mixin amounts ($color, $m, $w)
+    font-size: 1.3rem
+    font-weight: $w
+    margin-right: $m
+    padding: 0
+    color: $color
+
+.checkoutItemContainer
+    width: 85%
+    height: 40px
+    margin-right: auto
+    margin-left: auto
+    margin-top: 0
+    padding-top: 20px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    background: none
+    & > img
+        width: 60px
+        height: 40px
+        margin-right: 10px
+        border-radius: 3px
+        object-fit: contain
+    &__textContent
+        background: none
+        width: 99%
+        & > p
+            color: black
+            font-size: 1.4rem
+            font-weight: 600
+            margin: 0
+            padding: 0
+        & > div
+            display: flex
+            margin-top: -10px
+            & > p:nth-child(1)
+                @include amounts($red, 12px, 700)
+            & > p:nth-child(2)
+                @include amounts(gray, 8px, 400)
+    & > p
+        font-size: 1.8rem
+        margin-top: 8px
+        font-weight: 600

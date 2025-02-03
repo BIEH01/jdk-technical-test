@@ -1,7 +1,10 @@
-import "./App.sass";
+import Main from "./components/shared/MainContent/Main";
+import { ContextProvider } from "./context";
 
-function App() {
-	return <></>;
+export default function App() {
+	return (
+		<ContextProvider>
+			<Main />
+		</ContextProvider>
+	);
 }
-
-export default App;

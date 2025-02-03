@@ -1,0 +1,56 @@
+@use '../../../_variables' as *
+
+.fontCardStyles
+    font-size: $font-size-product-names
+    margin: 5px
+
+.cardContainer
+    width: 275px
+    display: flex
+    flex-direction: column
+    margin-right: 7px
+    margin-left: 7px
+    &__headerContent
+        position: relative
+        width: 100%
+        height: auto
+        margin-right: auto
+        margin-left: auto
+        display: flex
+        flex-direction: column
+        &__noBorder
+            width: 100%
+            height: auto
+            border-radius: 8px
+            object-fit: contain
+        &__withBorder
+            width: 100%
+            height: auto
+            border-radius: 8px
+            object-fit: contain
+            border: 3px solid $red
+
+    &__cardButton
+        position: absolute
+        top: 92%
+        right: 0%
+        left: 0%
+        width: 50%
+        height: auto
+        margin-right: auto
+        margin-left: auto
+
+    & > footer
+        margin-top: 30px
+        margin-bottom: 30px
+        & > p:nth-child(1)
+            @extend .fontCardStyles
+            color: gray
+        & > p:nth-child(2)
+            @extend .fontCardStyles
+            color: black
+            font-weight: 600
+        & > p:nth-child(3)
+            @extend .fontCardStyles
+            color: $red
+            font-weight: 600

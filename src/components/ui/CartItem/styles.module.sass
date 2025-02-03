@@ -1,0 +1,54 @@
+@use '../../../_variables.sass' as *
+
+@mixin amounts ($color, $m)
+    font-size: 1.3rem
+    margin-right: $m
+    padding: 0
+    color: $color
+
+.cartItemContainer
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    width: 85%
+    height: 40px
+    margin-right: auto
+    margin-left: auto
+    margin-top: 8px
+    &__textContent
+        background-color: white
+        width: 99%
+        & > p
+            color: black
+            font-size: 1.3rem
+            font-weight: 600
+            margin: 0
+            padding: 0
+        & > div
+            display: flex
+            margin-top: -10px
+            & > p:nth-child(1)
+                @include amounts($red, 12px)
+            & > p:nth-child(2)
+                @include amounts(gray, 8px)
+            & > p:nth-child(3)
+                @include amounts(black, 8px)
+    & > button
+        display: flex
+        justify-content: center
+        align-content: center
+        width: 18px
+        height: 18px
+        margin-top: 10px
+        border-color: #caafa7
+        border-width: 1px
+        border-radius: 100%
+        background-color: white
+        &:hover
+            border-color: black
+            border-width: 2px
+        & > img
+            margin-top: 1px
+            width: 12px
+            height: 12px
+            object-fit: contain
