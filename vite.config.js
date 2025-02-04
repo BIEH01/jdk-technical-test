@@ -5,4 +5,15 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
 	plugins: [react()],
 	base: "/jdk-technical-test/",
+	assetsInclude: [
+		"**/*.ttf",
+		"**/*.woff",
+		"**/*.woff2",
+		"**/*.jpg",
+		"**/*.png",
+		"**/*.svg",
+	],
+	define: {
+		"import.meta.env.BASE_URL": JSON.stringify("/jdk-technical-test/"),
+	},
 });
