@@ -7,6 +7,7 @@ const CardButton = (item) => {
 	const context = useContext(GlobalContext);
 	const [click, setClick] = useState(false);
 	const [counter, setCounter] = useState(0);
+	const [addedItemId, setAddedItemId] = useState("");
 
 	const copyData = (data, counter) => {
 		const newCopy = { ...data };
@@ -22,7 +23,6 @@ const CardButton = (item) => {
 		// increase button
 		if (res === "more") {
 			// increase the amount
-			context.setGlobalCounter(context.globalCounter + 1);
 			const index = context.selectedItems.findIndex(
 				(item) => item.id === data.id
 			);
@@ -37,28 +37,14 @@ const CardButton = (item) => {
 
 		// decrease button
 		if (res === "less") {
-			context.setGlobalCounter(context.globalCounter - 1);
-
 			// remove from the list
 			if (counter === 1) {
+				context.setGlobalCounter(0);
 				setCounter(0);
 				const update = context.selectedItems.filter(
 					(item) => item.id !== data.id
 				);
 				context.setSelectedItems(update);
-				setClick(false);
-				// let value = update.some((item) => item.id === data.id);
-				// if (context.selectedItems.length > 0) {
-				// 	context.selectedItems.forEach((item) => {
-				// 		if (item) {
-				// 			setClick(item.clicked);
-				// 		} else {
-				// 			setClick(false);
-				// 		}
-				// 	});
-				// } else {
-				// 	setClick(false);
-				// }
 
 				// decrease the amount
 			} else {
@@ -79,16 +65,42 @@ const CardButton = (item) => {
 		if (res === "add") {
 			// add to the list
 			setCounter(1);
+			context.setGlobalCounter(1);
 			const newItem = copyData(data, 1);
 			context.setSelectedItems([...context.selectedItems, newItem]);
-			context.setGlobalCounter(context.globalCounter + 1);
-			setClick(true);
-			console.log("item", item);
-			console.log("data", data);
-			console.log("obj", obj);
-			console.log("newItem", newItem);
+			setAddedItemId(newItem.id);
+		}
+
+		// set global counter
+		if (context.selectedItems.length > 0) {
+			let globalQuantity = context.selectedItems.reduce(
+				(count, item) => count + item.quantity,
+				0
+			);
+			context.setGlobalCounter(globalQuantity);
 		}
 	};
+
+	useEffect(() => {
+		if (context.selectedItems.some((item) => item.id === addedItemId)) {
+			const index = context.selectedItems.findIndex(
+				(item) => item.id === addedItemId
+			);
+
+			if (context.selectedItems[index].clicked) {
+				setClick(context.selectedItems[index].clicked);
+			} else {
+				setClick(false);
+			}
+		} else {
+			setClick(false);
+			setAddedItemId("");
+		}
+
+		if (context.selectedItems.length === 0) {
+			context.setGlobalCounter(0);
+		}
+	}, [addedItemId, context.selectedItems, context.globalCounter]);
 
 	return (
 		<>
@@ -107,7 +119,7 @@ const CardButton = (item) => {
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="10"
-							height="2"
+							height="10"
 							fill="none"
 							viewBox="0 0 10 2"
 						>

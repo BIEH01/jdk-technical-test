@@ -30,7 +30,7 @@ export default function CheckoutDialog() {
 				</ul>
 				<div>
 					<p>Order Total</p>
-					<p>{context.globalTotal}</p>
+					<p>${context.globalTotal}</p>
 				</div>
 			</div>
 			<footer>

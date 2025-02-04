@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import { data } from "../../data";
 import { GlobalContext } from "./context";
 
 export const ContextProvider = ({ children }) => {
 	const [products, setProducts] = useState(null);
 	const [selectedItems, setSelectedItems] = useState([]);
 	const [globalCounter, setGlobalCounter] = useState(0);
-	const [idDeleted, setIdDeleted] = useState(null);
 	const [globalTotal, setGlobalTotal] = useState(0);
 	const [openDialog, setOpenDialog] = useState(false);
 
@@ -18,6 +18,7 @@ export const ContextProvider = ({ children }) => {
 			setProducts(result);
 		} catch (error) {
 			console.error("Error al obtener productos:", error);
+			setProducts(data);
 		}
 	};
 
@@ -33,8 +34,6 @@ export const ContextProvider = ({ children }) => {
 				setSelectedItems,
 				globalCounter,
 				setGlobalCounter,
-				idDeleted,
-				setIdDeleted,
 				globalTotal,
 				setGlobalTotal,
 				openDialog,

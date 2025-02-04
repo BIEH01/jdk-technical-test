@@ -9,7 +9,6 @@ const CartItem = ({ item }) => {
 	const handleDeleteItem = (id) => {
 		let newList = context.selectedItems.filter((item) => item.id !== id);
 		context.setSelectedItems(newList);
-		context.setIdDeleted(id);
 	};
 
 	return (

@@ -14,7 +14,7 @@ export default function Main() {
 				<h1>Desserts</h1>
 				<section>
 					{products &&
-						products.map((item) => <CardProducts key={item.id} {...item} />)}
+						products.map((item) => <CardProducts key={item.name} {...item} />)}
 				</section>
 			</header>
 			<aside>
