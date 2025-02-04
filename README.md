@@ -28,6 +28,12 @@ npm install
 npm install -g sass
 ```
 
+5. Puedes usar json-server o dejar que cargue los datos en data.js
+
+```bash
+npm run server
+```
+
 Espero te guste tanto como a mi
 
 ¡Gracias!
