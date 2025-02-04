@@ -1,4 +1,3 @@
-import image from "../../../assets/images/image-baklava-desktop.jpg";
 import styles from "./styles.module.sass";
 
 const CheckoutItem = ({ item }) => {
