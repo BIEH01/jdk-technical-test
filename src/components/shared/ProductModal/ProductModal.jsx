@@ -1,40 +1,54 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import icons from "../../../constants/icons";
 import styles from "./styles.module.sass";
 import { GlobalContext } from "../../../context/context";
+import { copyData } from "../../../../utils";
 
 export default function ProductModal() {
-	const context = useContext(GlobalContext);
-	const [productToShowcase, setProductToShowcase] = useState(null);
-	const product = context.selectedItems.find(
-		(item) => item.id === context.productSelected
-	);
+	const {
+		productSelected,
+		setOpenProductDetail,
+		setProductSelected,
+		setSelectedItems,
+		selectedItems,
+		setGlobalCounter,
+	} = useContext(GlobalContext);
 
-	console.log(product);
-	console.log(context.productSelected);
-
-	setProductToShowcase(product);
-
-	const handleClick = () => {
-		//
+	const handleClick = (res) => {
+		if (res === "close") {
+			setOpenProductDetail(false);
+			setProductSelected("");
+		} else {
+			if (selectedItems.some((item) => item.id === productSelected.id)) {
+				setOpenProductDetail(false);
+				setProductSelected("");
+			} else {
+				setGlobalCounter(1);
+				const newItem = copyData(productSelected, 1);
+				setSelectedItems([...selectedItems, newItem]);
+				setOpenProductDetail(false);
+				setProductSelected("");
+			}
+		}
 	};
 
 	return (
 		<article className={styles.productModalContainer}>
 			<header>
-				<h2>{productToShowcase.category}</h2>
-				<p>{productToShowcase.name}</p>
-				<p>{productToShowcase.price}</p>
+				<h2>{productSelected.category}</h2>
+				<p>{productSelected.name}</p>
+				<p>${productSelected.price}</p>
 				<p>
 					description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Nihil eaque rem eum vitae ea porro voluptatum, maxime aliquam sapiente
 					aut optio veniam quia officia possimus minima quos a illo odit.
 				</p>
+				<button onClick={() => handleClick("close")}>Close</button>
 			</header>
 			<aside>
-				{/* <img src={productToShowcase.image.desktop} alt="waffle" /> */}
-				<button onClick={() => handleClick()}>
-					<img src={icons.addToCart} alt="" />
+				<img src={productSelected.image.desktop} alt="waffle" />
+				<button onClick={() => handleClick("add")}>
+					<img src={icons.addToCart} alt="add to cart" />
 				</button>
 			</aside>
 		</article>

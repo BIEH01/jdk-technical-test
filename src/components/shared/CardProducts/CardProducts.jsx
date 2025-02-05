@@ -7,8 +7,9 @@ export default function CardProducts(data) {
 	const context = useContext(GlobalContext);
 	const selected = context.selectedItems.some((item) => item.id === data.id);
 
-	const handleClick = (id) => {
-		context.setProductSelected(id);
+	const handleClick = (data) => {
+		const product = context.products.find((item) => item.id === data);
+		context.setProductSelected(product);
 		context.setOpenProductDetail(true);
 	};
 
@@ -31,7 +32,7 @@ export default function CardProducts(data) {
 				</div>
 			</header>
 			<footer>
-				<a onClick={() => handleClick(data.id)}>
+				<a onClick={() => handleClick(data)}>
 					<p>{data.category}</p>
 					<p>{data.name}</p>
 					<p>${data.price}</p>

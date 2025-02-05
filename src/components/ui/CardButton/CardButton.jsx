@@ -2,20 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import icons from "../../../constants/icons";
 import styles from "./styles.module.sass";
 import { GlobalContext } from "../../../context/context";
+import { copyData } from "../../../../utils";
 
 const CardButton = (item) => {
 	const context = useContext(GlobalContext);
 	const [click, setClick] = useState(false);
 	const [counter, setCounter] = useState(0);
 	const [addedItemId, setAddedItemId] = useState("");
-
-	const copyData = (data, counter) => {
-		const newCopy = { ...data };
-		newCopy.clicked = true;
-		newCopy.quantity = counter;
-		newCopy.total = newCopy.price * counter;
-		return newCopy;
-	};
 
 	const handleClick = (res, obj) => {
 		const data = { ...obj.data };
