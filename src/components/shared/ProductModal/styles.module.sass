@@ -1,0 +1,30 @@
+@use '../../../_variables' as *
+
+.productModalContainer
+    display: flex
+    flex-direction: row
+    position: fixed
+    z-index: 2
+    inset: 0
+    margin: auto
+    width: 100%
+    height: fit-content
+    bottom: 10%
+    max-width: 800px
+    background-color: white
+    border-radius: 10px
+    & > header
+        width: 40%
+        display: flex
+        flex-direction: column
+        margin-right: auto
+        margin-left: 30px
+        margin-top: 40px
+        justify-content: start
+        align-content: center
+        & > h2
+            font-size: 2rem
+        & > p
+            font-size: 1.8rem
+    & > aside
+        width: 60%

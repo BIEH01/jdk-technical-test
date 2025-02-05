@@ -8,6 +8,8 @@ export const ContextProvider = ({ children }) => {
 	const [globalCounter, setGlobalCounter] = useState(0);
 	const [globalTotal, setGlobalTotal] = useState(0);
 	const [openDialog, setOpenDialog] = useState(false);
+	const [openProductDetail, setOpenProductDetail] = useState(false);
+	const [productSelected, setProductSelected] = useState("");
 
 	const url = "http://localhost:5000/0";
 
@@ -38,6 +40,10 @@ export const ContextProvider = ({ children }) => {
 				setGlobalTotal,
 				openDialog,
 				setOpenDialog,
+				openProductDetail,
+				setOpenProductDetail,
+				productSelected,
+				setProductSelected,
 			}}
 		>
 			{children}

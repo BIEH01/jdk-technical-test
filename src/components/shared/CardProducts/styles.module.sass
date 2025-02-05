@@ -43,14 +43,15 @@
     & > footer
         margin-top: 30px
         margin-bottom: 30px
-        & > p:nth-child(1)
-            @extend .fontCardStyles
-            color: gray
-        & > p:nth-child(2)
-            @extend .fontCardStyles
-            color: black
-            font-weight: 600
-        & > p:nth-child(3)
-            @extend .fontCardStyles
-            color: $red
-            font-weight: 600
+        & > a
+            & > p:nth-child(1)
+                @extend .fontCardStyles
+                color: gray
+            & > p:nth-child(2)
+                @extend .fontCardStyles
+                color: black
+                font-weight: 600
+            & > p:nth-child(3)
+                @extend .fontCardStyles
+                color: $red
+                font-weight: 600
