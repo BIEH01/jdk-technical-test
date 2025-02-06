@@ -57,11 +57,19 @@ const CardButton = (item) => {
 		// add to cart button
 		if (res === "add") {
 			// add to the list
-			setCounter(1);
-			context.setGlobalCounter(1);
-			const newItem = copyData(data, 1);
-			context.setSelectedItems([...context.selectedItems, newItem]);
-			setAddedItemId(newItem.id);
+			if (context.selectedItems.some((item) => item.id === data.id)) {
+				const index = context.selectedItems.findIndex(
+					(item) => item.id === data.id
+				);
+				setClick(true);
+				setCounter(context.selectedItems[index].quantity);
+			} else {
+				setCounter(1);
+				context.setGlobalCounter(1);
+				const newItem = copyData(data, 1);
+				context.setSelectedItems([...context.selectedItems, newItem]);
+				setAddedItemId(newItem.id);
+			}
 		}
 
 		// set global counter
@@ -93,7 +101,18 @@ const CardButton = (item) => {
 		if (context.selectedItems.length === 0) {
 			context.setGlobalCounter(0);
 		}
-	}, [addedItemId, click, context]);
+	}, [addedItemId, click, context.selectedItems, context.globalCounter]);
+
+	useEffect(() => {
+		const data = { ...item.data };
+		if (context.selectedItems.some((item) => item.id === data.id)) {
+			const index = context.selectedItems.findIndex(
+				(item) => item.id === data.id
+			);
+			setClick(true);
+			setCounter(context.selectedItems[index].quantity);
+		}
+	}, [context.selectedItems, click, counter]);
 
 	return (
 		<>
