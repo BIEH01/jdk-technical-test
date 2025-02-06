@@ -32,7 +32,7 @@ export default function CardProducts(data) {
 				</div>
 			</header>
 			<footer>
-				<a onClick={() => handleClick(data)}>
+				<a onClick={() => handleClick(data.id)}>
 					<p>{data.category}</p>
 					<p>{data.name}</p>
 					<p>${data.price}</p>

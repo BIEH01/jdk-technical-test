@@ -1,35 +1,15 @@
 import { useContext } from "react";
-import icons from "../../../constants/icons";
 import styles from "./styles.module.sass";
 import { GlobalContext } from "../../../context/context";
-import { copyData } from "../../../../utils";
+import CardButton from "../../ui/CardButton/CardButton";
 
 export default function ProductModal() {
-	const {
-		productSelected,
-		setOpenProductDetail,
-		setProductSelected,
-		setSelectedItems,
-		selectedItems,
-		setGlobalCounter,
-	} = useContext(GlobalContext);
+	const { productSelected, setOpenProductDetail, setProductSelected } =
+		useContext(GlobalContext);
 
-	const handleClick = (res) => {
-		if (res === "close") {
-			setOpenProductDetail(false);
-			setProductSelected("");
-		} else {
-			if (selectedItems.some((item) => item.id === productSelected.id)) {
-				setOpenProductDetail(false);
-				setProductSelected("");
-			} else {
-				setGlobalCounter(1);
-				const newItem = copyData(productSelected, 1);
-				setSelectedItems([...selectedItems, newItem]);
-				setOpenProductDetail(false);
-				setProductSelected("");
-			}
-		}
+	const handleClick = () => {
+		setOpenProductDetail(false);
+		setProductSelected("");
 	};
 
 	return (
@@ -43,13 +23,13 @@ export default function ProductModal() {
 					Nihil eaque rem eum vitae ea porro voluptatum, maxime aliquam sapiente
 					aut optio veniam quia officia possimus minima quos a illo odit.
 				</p>
-				<button onClick={() => handleClick("close")}>Close</button>
+				<button onClick={() => handleClick()}>Close</button>
 			</header>
 			<aside>
 				<img src={productSelected.image.desktop} alt="waffle" />
-				<button onClick={() => handleClick("add")}>
-					<img src={icons.addToCart} alt="add to cart" />
-				</button>
+				<div>
+					<CardButton data={productSelected} />
+				</div>
 			</aside>
 		</article>
 	);

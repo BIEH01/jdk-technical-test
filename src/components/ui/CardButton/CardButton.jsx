@@ -93,7 +93,7 @@ const CardButton = (item) => {
 		if (context.selectedItems.length === 0) {
 			context.setGlobalCounter(0);
 		}
-	}, [addedItemId, context.selectedItems, context.globalCounter]);
+	}, [addedItemId, click, context]);
 
 	return (
 		<>
